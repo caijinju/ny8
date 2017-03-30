@@ -151,7 +151,7 @@ hi def link octNumber	Number
 hi def link binNumber	Number
 
 "hi def link asmIdentifier	Identifier
-hi clear asmIdentifier	
+hi def link asmIdentifier	Normal
 "hi def link asmType	Type
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
