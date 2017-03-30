@@ -67,7 +67,7 @@ syn keyword specInst endm exitm expand local macro maxmacrodepth noexpand
 "syn match asmType "\.word"
 
 syn match asmLabel		"[a-z_][a-z0-9_]*:"he=e-1
-syn match asmIdentifier		"[a-z_][a-z0-9_]*"
+"syn match asmIdentifier		"[a-z_][a-z0-9_]*"
 
 " Various #'s as defined by GAS ref manual sec 3.6.2.1
 " Technically, the first decNumber def is actually octal,
