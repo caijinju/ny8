@@ -145,7 +145,7 @@ syn case match
 
 " The default methods for highlighting.  Can be overridden later
 hi def link asmSection	Special
-hi def link asmLabel	Label
+hi def link asmLabel	Question
 hi def link asmComment	Comment
 hi def link asmTodo	Todo
 "hi def link asmDirective	Statement
@@ -165,8 +165,8 @@ hi def link binNumber	Number
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " add by cjj
 """"""""""""""""""""""""""""""""""""""""""""""""""
-hi def link ariIns	Statement
-hi def link conIns	Statement
+hi def link ariIns	Directory
+hi def link conIns	SpecialKey
 hi def link dttIns	Statement
 hi def link othIns	Statement
 
