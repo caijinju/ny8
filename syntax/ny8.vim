@@ -67,17 +67,26 @@ syn keyword specInst endm exitm expand local macro maxmacrodepth noexpand
 "syn match asmType "\.word"
 
 syn match asmLabel		"[a-z_][a-z0-9_]*:"he=e-1
-syn match asmIdentifier		"[a-z_@][a-z0-9_@]*"
+"syn match asmIdentifier		"[a-z_@][a-z0-9_@]*"
 
 " Various #'s as defined by GAS ref manual sec 3.6.2.1
 " Technically, the first decNumber def is actually octal,
 " since the value of 0-7 octal is the same as 0-7 decimal,
 " I (Kevin) prefer to map it as decimal:
-syn match decNumber		"0\+[1-7]\=[\t\n$,; ]"
-syn match decNumber		"[1-9]\d*"
-syn match octNumber		"0[0-7][0-7]\+"
-syn match hexNumber		"0[xX][0-9a-fA-F]\+"
-syn match binNumber		"0[bB][0-1]*"
+"syn match decNumber		"0\+[1-7]\=[\t\n$,; ]\>"
+"syn match decNumber		"\<[1-9]\d*\>"
+"syn match octNumber		"\<0[0-7][0-7]\+\>"
+"syn match hexNumber		"\<0[xX][0-9a-fA-F]\+\>"
+"syn match binNumber		"\<0[bB][0-1]*\>"
+
+syn match decNumber		"\<[dD]'[1-9]\d*'\>"
+syn match decNumber		"\<[1-9]\d*\>"
+syn match decNumber		"\<\d\+\>"
+syn match hexNumber		"\<0[xX][0-9a-fA-F]\+\>"
+syn match hexNumber		"\<[hH]'[0-9a-fA-F]\+'\>"
+syn match hexNumber		"\<[0-9a-fA-F]\+[hH]\>"
+syn match octNumber		"\<[oO]'[0-7][0-7]\+'\>"
+syn match binNumber		"\<[bB]'[0-1]\+'\>"
 
 syn keyword asmTodo		contained TODO
 
@@ -151,7 +160,6 @@ hi def link octNumber	Number
 hi def link binNumber	Number
 
 "hi def link asmIdentifier	Identifier
-hi def link asmIdentifier	Normal
 "hi def link asmType	Type
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
