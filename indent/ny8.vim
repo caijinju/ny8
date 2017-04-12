@@ -14,7 +14,7 @@
 setlocal indentexpr=NyAsmGetIndent(v:lnum)
 "setlocal indentkeys+==ENDIF(,ENDFOREACH(,ENDMACRO(,ELSE(,ELSEIF(,ENDWHILE(
 setlocal indentkeys=break,else,endfor,endif,ends,endsw,endw,until,endc,endm
-"setlocal tabstop=4
+setlocal tabstop=4
 "setlocal softtabstop=4
 setlocal shiftwidth=4
 
@@ -59,9 +59,16 @@ fun! NyAsmGetIndent(lnum)
 "                    \            ')\s*' .
 "                    \            '\(' . cmake_regex_comment . '\)\?$'
 
+" 正则匹配
 let nyasm_identifier_regex = '[A-Za-z@_][A-Za-z0-9_@]*'
-let nyasm_indent_begin_regex = '^\s*\(case\|default\|else\|for\|if\|ifdef\|ifndef\|repeat\|switch\|while\|local\|macro\)\>'
+let nyasm_indent_begin_regex = '^\s*\(case\|default\|else\|for\|if\|ifdef\|ifndef\|repeat\|switch\|while\|local\)\>'
 let nyasm_indent_end_regex = '^\s*\(break\|else\|endfor\|endif\|ends\|endsw\|endw\|until\|endc\|endm\)\>'
+
+" 行匹配
+let nyasm_indent_label_line= '^\s*' . nyasm_identifier_regex . '\s*:\s*\(' . nyasm_comment_regex . '\)\?$'
+let nyasm_indent_macro_line='^\s*' . nyasm_identifier_regex . '\s\+macro\>'
+
+
 
   " Add
 "  if previous_line =~? cmake_indent_comment_line " Handle comments
@@ -81,7 +88,11 @@ let nyasm_indent_end_regex = '^\s*\(break\|else\|endfor\|endif\|ends\|endsw\|end
 "      endif
 "  endif
 
-  if previous_line =~ '^\s*' . nyasm_identifier_regex . '\s*:\s*\(' . nyasm_comment_regex . '\)\?$'
+  if previous_line =~ nyasm_indent_label_line
+    return ind + &sw
+  endif
+
+  if previous_line =~ nyasm_indent_macro_line
     return ind + &sw
   endif
 
