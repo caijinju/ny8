@@ -12,6 +12,13 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
+" 查看当前语法高亮可使用 :syntax
+" 查看当前语法某项高亮可使用 :syntax list {groupName}
+" 清理语法
+"syntax clear
+
+
+" 忽略关键字大小写
 syn case ignore
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -66,7 +73,7 @@ syn keyword specInst endm exitm expand local macro maxmacrodepth noexpand
 "syn match asmType "\.string"
 "syn match asmType "\.word"
 
-syn match nyasmLabel		"[A-Za-z_@][A-Za-z0-9_@]*:"he=e-1
+syn match nyasmLabel		/[A-Za-z_@][A-Za-z0-9_@]*\s*:/me=e-1
 "syn match asmIdentifier		"[a-z_@][a-z0-9_@]*"
 
 " Various #'s as defined by GAS ref manual sec 3.6.2.1
@@ -168,10 +175,10 @@ hi def link binNumber	Number
 hi def link ariIns	Directory
 hi def link conIns	SpecialKey
 hi def link dttIns	Statement
-hi def link othIns	Statement
+hi def link othIns	ModeMsg
 
 hi def link contInst	PreCondit
-hi def link condInst	Statement
+hi def link condInst	MoreMsg
 hi def link dataInst	Type
 hi def link specInst	Special
 
