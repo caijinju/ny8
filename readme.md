@@ -1,3 +1,42 @@
+## 版本0.1.9 -- 修复Label没向后缩进问题
+
+### BUG
+
+问题
+
+- label在输入冒号之后没有向后缩进
+
+修复
+
+1. 在indentkeys添加冒号 `<:>`
+
+```
+setlocal indentkeys=break,else,endfor,endif,ends,endsw,endw,until,endc,endm,<:>
+```
+
+2. 修改label行的匹配
+
+```
+let nyasm_indent_label_line= '^\s*' . nyasm_identifier_regex . '\s*:'
+```
+
+3. 添加当前行为label向后缩进处理
+
+```
+if this_line =~? nyasm_indent_label_line
+  let ind = ind - &sw
+endif
+```
+
+### 修改
+
+1. 取消label行增加缩进的返回操作，改为赋值继续执行
+2. 取消macro行增加缩进的返回操作，改为赋值继续执行
+
+
+
+---
+
 ## 版本0.1.8 -- 修复macro缩进问题
 
 ### BUG
