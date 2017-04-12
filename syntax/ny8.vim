@@ -1,5 +1,5 @@
 " Vim syntax file
-" Language:	GNU Assembler
+" Language:	NY8 Assembler
 " Maintainer:	caijinju <517402802@qq.com>
 " Last Change:	2017 03 30
 
@@ -66,7 +66,7 @@ syn keyword specInst endm exitm expand local macro maxmacrodepth noexpand
 "syn match asmType "\.string"
 "syn match asmType "\.word"
 
-syn match asmLabel		"[a-z_][a-z0-9_]*:"he=e-1
+syn match nyasmLabel		"[A-Za-z_@][A-Za-z0-9_@]*:"he=e-1
 "syn match asmIdentifier		"[a-z_@][a-z0-9_@]*"
 
 " Various #'s as defined by GAS ref manual sec 3.6.2.1
@@ -144,8 +144,8 @@ syn case match
 " Only when an item doesn't have highlighting yet
 
 " The default methods for highlighting.  Can be overridden later
-hi def link asmSection	Special
-hi def link asmLabel	Question
+"hi def link asmSection	Special
+hi def link nyasmLabel	Question
 hi def link asmComment	Comment
 hi def link asmTodo	Todo
 "hi def link asmDirective	Statement
