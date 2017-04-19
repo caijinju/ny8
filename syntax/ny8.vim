@@ -173,14 +173,20 @@ hi def link binNumber	Number
 " add by cjj
 """"""""""""""""""""""""""""""""""""""""""""""""""
 hi def link ariIns	Directory
-hi def link conIns	SpecialKey
-hi def link dttIns	Statement
-hi def link othIns	ModeMsg
+hi def link conIns	Directory
+hi def link dttIns	Directory
+hi def link othIns	Directory
+"hi def link conIns	SpecialKey
+"hi def link dttIns	Statement
+"hi def link othIns	ModeMsg
 
 hi def link contInst	PreCondit
-hi def link condInst	MoreMsg
-hi def link dataInst	Type
-hi def link specInst	Special
+hi def link condInst	PreCondit
+hi def link dataInst	PreCondit
+hi def link specInst	PreCondit
+"hi def link condInst	MoreMsg
+"hi def link dataInst	Type
+"hi def link specInst	Special
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
