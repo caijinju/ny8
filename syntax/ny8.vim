@@ -34,6 +34,11 @@ syn keyword dttIns movar movr movia swapr iost iostr sfun sfunr t0md t0mdr table
 " Other Instructions
 syn keyword othIns nop sleep clrwdt eni disi int ret retie retia calla gotoa call goto lcall lgoto
 
+syn keyword ny8regR indf tmr0 pcl status fsr portb pcon bwucon pchbuf bplcon bphcon inte intf
+
+syn keyword ny8regF iostb ps0cv bodcon pcon1
+syn keyword ny8regS tmr1 t1cr1 t1cr2 pwm1duty ps1cv bz1cr ircr tbhp tbhd osccr
+
 
 " NYASM 指令
 " 控制型虚拟指令
@@ -187,6 +192,10 @@ hi def link specInst	PreCondit
 "hi def link condInst	MoreMsg
 "hi def link dataInst	Type
 "hi def link specInst	Special
+
+hi def link ny8regR	SpecialKey
+hi def link ny8regF	SpecialKey
+hi def link ny8regS	SpecialKey
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
